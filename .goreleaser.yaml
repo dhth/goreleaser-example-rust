@@ -8,6 +8,9 @@
 
 version: 2
 
+release:
+  draft: true
+
 before:
   hooks:
     - rustup default stable
