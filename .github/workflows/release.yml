@@ -19,13 +19,17 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - name: Install toolchain
+    - name: Install Rust toolchain
       uses: dtolnay/rust-toolchain@stable
     - name: Build
       run: cargo build
-    - name: Set up release dependencies
-      run: |
-        cargo install --locked cargo-zigbuild
+    - name: Install Zig toolchain
+      uses: mlugg/setup-zig@v1
+    - name: Install cargo-zigbuild
+      uses: jaxxstorm/action-install-gh-release@cd6b2b78ad38bdd294341cda064ec0692b06215b # v1.14.0
+      with:
+        repo: rust-cross/cargo-zigbuild
+        tag: v0.19.7
     - name: Release Binaries
       uses: goreleaser/goreleaser-action@v6
       with:
