@@ -1,3 +1,3 @@
 fn main() {
-    println!("v0.1.6: shipped via goreleaser!");
+    println!("v0.1.7: shipped via goreleaser!");
 }

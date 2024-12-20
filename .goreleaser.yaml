@@ -36,6 +36,16 @@ signs:
       - "--yes"
     artifacts: checksum
 
+brews:
+  - name: goreleaser-example-rust
+    repository:
+      owner: dhth
+      name: homebrew-tap
+    directory: Formula
+    license: MIT
+    homepage: "https://github.com/dhth/goreleaser-example-rust"
+    description: "a sample project to test releasing rust binaries using goreleaser"
+
 changelog:
   sort: asc
   filters:
