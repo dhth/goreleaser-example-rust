@@ -8,9 +8,6 @@
 
 version: 2
 
-release:
-  draft: true
-
 before:
   hooks:
     - rustup default stable
@@ -44,6 +41,7 @@ changelog:
       - "^test:"
 
 release:
+  draft: true
   footer: >-
 
     ---
