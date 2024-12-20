@@ -16,24 +16,24 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-    - name: Install Rust toolchain
-      uses: dtolnay/rust-toolchain@stable
-    - name: Build
-      run: cargo build
-    - name: Install Zig toolchain
-      uses: mlugg/setup-zig@v1
-    - name: Install cargo-zigbuild
-      uses: jaxxstorm/action-install-gh-release@cd6b2b78ad38bdd294341cda064ec0692b06215b # v1.14.0
-      with:
-        repo: rust-cross/cargo-zigbuild
-        tag: v0.19.7
-    - name: Release Binaries
-      uses: goreleaser/goreleaser-action@v6
-      with:
-        version: latest
-        args: release --clean
-      env:
-        GITHUB_TOKEN: ${{secrets.GH_PAT}}
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Build
+        run: cargo build
+      - name: Install Zig toolchain
+        uses: mlugg/setup-zig@v1
+      - name: Install cargo-zigbuild
+        uses: jaxxstorm/action-install-gh-release@cd6b2b78ad38bdd294341cda064ec0692b06215b # v1.14.0
+        with:
+          repo: rust-cross/cargo-zigbuild
+          tag: v0.19.7
+      - name: Release Binaries
+        uses: goreleaser/goreleaser-action@v6
+        with:
+          version: '~> v2'
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{secrets.GH_PAT}}
