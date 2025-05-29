@@ -1,0 +1,25 @@
+name: usage
+
+on:
+  workflow_dispatch:
+
+jobs:
+  manual:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Download and run
+        run: |
+          ./download.sh
+          ./goreleaser-example-rust
+
+  gh-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install
+        uses: jaxxstorm/action-install-gh-release@v2.1.0
+        with:
+          repo: dhth/goreleaser-example-rust
+          tag: v0.1.7
+      - name: Run
+        run: |
+          goreleaser-example-rust
