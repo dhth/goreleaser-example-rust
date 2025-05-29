@@ -7,7 +7,7 @@ jobs:
   manual:
     runs-on: ubuntu-latest
     steps:
-      - uses: Download and run
+      - name: Download and run
         run: |
           ./download.sh
           ./goreleaser-example-rust
